@@ -1,0 +1,1316 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+
+    font-family: "Courier New", monospace;
+
+    background: #f8d8e7;
+    color: #351b35;
+
+    image-rendering: pixelated;
+}
+
+
+/* =========================================
+   APP
+========================================= */
+
+#app {
+    width: 100%;
+    height: 100vh;
+
+    position: relative;
+}
+
+
+/* =========================================
+   CHAPTER SYSTEM
+========================================= */
+
+.chapter {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(1.03);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        visibility 0.7s;
+}
+
+.chapter.active {
+    opacity: 1;
+    visibility: visible;
+
+    transform: scale(1);
+}
+
+
+/* =========================================
+   CHAPTER 1 BACKGROUND
+========================================= */
+
+#chapter1 {
+    background: #f6bfd7;
+}
+
+.background {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+}
+
+.checker {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.16) 25%,
+            transparent 25%,
+            transparent 75%,
+            rgba(255, 255, 255, 0.16) 75%
+        ),
+        linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.16) 25%,
+            transparent 25%,
+            transparent 75%,
+            rgba(255, 255, 255, 0.16) 75%
+        );
+
+    background-size: 50px 50px;
+
+    background-position:
+        0 0,
+        25px 25px;
+
+    opacity: 0.8;
+}
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+#hearts {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    opacity: 0.75;
+
+    text-shadow:
+        2px 2px 0 rgba(120, 40, 90, 0.15);
+
+    animation:
+        floatHeart linear forwards;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform:
+            translateY(110vh)
+            rotate(0deg)
+            scale(0.8);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform:
+            translateY(-15vh)
+            rotate(20deg)
+            scale(1.2);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   RETRO WINDOW
+========================================= */
+
+.window {
+    position: relative;
+
+    width: min(720px, 88vw);
+
+    min-height: 430px;
+
+    background: #fff4f8;
+
+    border: 4px solid #351b35;
+
+    box-shadow:
+        8px 8px 0 #351b35;
+
+    z-index: 5;
+}
+
+
+/* =========================================
+   WINDOW HEADER
+========================================= */
+
+.window-header {
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 14px;
+
+    background: #d875a7;
+
+    color: white;
+
+    border-bottom: 4px solid #351b35;
+
+    font-weight: bold;
+}
+
+.window-title {
+    font-size: 15px;
+}
+
+.window-buttons {
+    display: flex;
+
+    gap: 7px;
+}
+
+.window-buttons span {
+    width: 25px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff4f8;
+
+    color: #351b35;
+
+    border: 2px solid #351b35;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   WINDOW CONTENT
+========================================= */
+
+.window-content {
+    min-height: 378px;
+
+    padding: 35px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    gap: 18px;
+}
+
+
+/* =========================================
+   PIXEL CHARACTER
+========================================= */
+
+.character-area {
+    width: 150px;
+    height: 120px;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.pixel-character {
+    position: relative;
+
+    width: 90px;
+    height: 100px;
+
+    animation:
+        characterFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes characterFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+
+/* Hair */
+
+.hair {
+    position: absolute;
+
+    top: 5px;
+    left: 18px;
+
+    width: 55px;
+    height: 38px;
+
+    background: #351b35;
+
+    box-shadow:
+        7px -5px 0 #351b35,
+        14px 0 0 #351b35,
+        21px 7px 0 #351b35;
+}
+
+
+/* Face */
+
+.face {
+    position: absolute;
+
+    top: 27px;
+    left: 23px;
+
+    width: 48px;
+    height: 43px;
+
+    background: #ffd9bd;
+
+    border: 3px solid #351b35;
+
+    box-shadow:
+        5px 0 0 #351b35;
+}
+
+
+/* Eyes */
+
+.eyes {
+    position: absolute;
+
+    top: 45px;
+    left: 33px;
+
+    width: 7px;
+    height: 7px;
+
+    background: #351b35;
+
+    box-shadow:
+        25px 0 0 #351b35;
+}
+
+
+/* Mouth */
+
+.face::after {
+    content: "";
+
+    position: absolute;
+
+    width: 8px;
+    height: 4px;
+
+    left: 17px;
+    bottom: 8px;
+
+    border-bottom: 3px solid #351b35;
+}
+
+
+/* Body */
+
+.body {
+    position: absolute;
+
+    bottom: 0;
+    left: 14px;
+
+    width: 67px;
+    height: 35px;
+
+    background: #9c63c7;
+
+    border: 3px solid #351b35;
+
+    box-shadow:
+        6px 5px 0 #351b35;
+}
+
+
+/* =========================================
+   TEXT
+========================================= */
+
+.small-text {
+    font-size: 14px;
+
+    color: #8c4d77;
+
+    letter-spacing: 1px;
+}
+
+.message-area h1 {
+    font-size: clamp(25px, 5vw, 42px);
+
+    line-height: 1.15;
+
+    color: #351b35;
+
+    text-shadow:
+        3px 3px 0 #f2a9c9;
+}
+
+.sub-text {
+    font-size: 15px;
+
+    color: #754267;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.buttons {
+    display: flex;
+
+    gap: 14px;
+
+    margin-top: 5px;
+}
+
+.pixel-button {
+    position: relative;
+
+    padding: 12px 24px;
+
+    border: 3px solid #351b35;
+
+    background: #ffffff;
+
+    color: #351b35;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        5px 5px 0 #351b35;
+
+    transition:
+        transform 0.12s ease,
+        box-shadow 0.12s ease,
+        background 0.12s ease;
+}
+
+.pixel-button:hover {
+    background: #ffd8e9;
+
+    transform:
+        translate(2px, 2px);
+
+    box-shadow:
+        3px 3px 0 #351b35;
+}
+
+.pixel-button:active {
+    transform:
+        translate(5px, 5px);
+
+    box-shadow:
+        0 0 0 #351b35;
+}
+
+
+/* =========================================
+   LOVE QUESTION
+========================================= */
+
+#loveQuestion {
+    background:
+        radial-gradient(
+            circle at center,
+            #ffeaf4 0%,
+            #f4b6d3 55%,
+            #c873a5 100%
+        );
+}
+
+
+/* =========================================
+   LOVE QUESTION — SPECIAL BUTTONS
+========================================= */
+
+#loveQuestion .buttons {
+    margin-top: 10px;
+}
+
+#loveNo {
+    min-width: 90px;
+}
+
+#loveYes {
+    min-width: 100px;
+}
+
+
+/* =========================================
+   DATE QUESTION
+========================================= */
+
+#dateQuestion {
+    background:
+        radial-gradient(
+            circle at center,
+            #fff3f8 0%,
+            #f2bfd8 50%,
+            #cf7ba9 100%
+        );
+}
+
+#dateQuestion .window {
+    width: min(650px, 88vw);
+
+    min-height: 400px;
+}
+
+#dateQuestion .window-content {
+    min-height: 345px;
+}
+
+
+/* Big date */
+
+.date-big {
+    font-size: clamp(38px, 8vw, 65px);
+
+    font-weight: bold;
+
+    color: #351b35;
+
+    letter-spacing: 3px;
+
+    text-shadow:
+        4px 4px 0 #efa9ca;
+
+    margin-bottom: 3px;
+}
+
+
+/* Date question */
+
+#dateQuestion .small-text {
+    font-size: 16px;
+
+    color: #754267;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   DATE OPTIONS
+========================================= */
+
+.date-options {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 13px;
+
+    flex-wrap: wrap;
+
+    margin-top: 8px;
+}
+
+.date-option {
+    min-width: 125px;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+}
+
+.date-option:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        5px 8px 0 #351b35;
+}
+
+
+/* =========================================
+   WRONG ANSWER EFFECT
+========================================= */
+
+.wrong-answer {
+    animation:
+        wrongShake 0.35s ease;
+}
+
+@keyframes wrongShake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-8px);
+    }
+
+    50% {
+        transform: translateX(8px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+
+/* =========================================
+   TOGETHER SCREEN
+========================================= */
+
+#together {
+    background:
+        radial-gradient(
+            circle at center,
+            #fff3f8 0%,
+            #efb4d0 45%,
+            #b96396 100%
+        );
+}
+
+.together-content {
+    position: relative;
+
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    gap: 12px;
+
+    animation:
+        togetherAppear 1s ease forwards;
+}
+
+@keyframes togetherAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* Been together */
+
+.together-label {
+    font-size: clamp(18px, 4vw, 27px);
+
+    color: #754267;
+
+    letter-spacing: 3px;
+
+    text-transform: lowercase;
+}
+
+
+/* 26 days */
+
+.days-number {
+    font-size: clamp(55px, 12vw, 100px);
+
+    line-height: 1;
+
+    color: #351b35;
+
+    text-shadow:
+        6px 6px 0 #e39abb;
+}
+
+
+/* Heart */
+
+.together-heart {
+    font-size: 45px;
+
+    color: #a8467b;
+
+    animation:
+        heartBeat 1s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+#togetherContinue {
+    margin-top: 15px;
+}
+
+
+/* =========================================
+   ORIGINAL CHAPTER 1 REVEAL
+========================================= */
+
+#chapter1Reveal {
+    background:
+        radial-gradient(
+            circle,
+            #fff1f7 0%,
+            #f5bad4 55%,
+            #d875a7 100%
+        );
+}
+
+.reveal-content {
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 17px;
+}
+
+.big-heart {
+    font-size: 100px;
+
+    color: #a8467b;
+
+    animation:
+        heartBeat 1s ease-in-out infinite;
+
+    text-shadow:
+        5px 5px 0 #351b35;
+}
+
+.reveal-content h1 {
+    font-size: clamp(30px, 7vw, 55px);
+}
+
+.reveal-content p {
+    color: #754267;
+}
+
+
+/* =========================================
+   CHAPTER 2
+========================================= */
+
+#chapter2 {
+    background: #21172b;
+
+    color: white;
+}
+
+.chapter2-background {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 25px 25px;
+}
+
+.chapter2-background::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(202, 101, 174, 0.25),
+            transparent 55%
+        );
+}
+
+.chapter2-content {
+    position: relative;
+
+    z-index: 3;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 22px;
+}
+
+.chapter-label {
+    font-size: 13px;
+
+    letter-spacing: 5px;
+
+    color: #d58bc0;
+}
+
+.chapter2-content h1 {
+    font-size: clamp(32px, 7vw, 65px);
+
+    line-height: 1.05;
+
+    color: white;
+
+    text-shadow:
+        4px 4px 0 #8a477c;
+}
+
+.chapter2-content p {
+    color: #cda7c5;
+}
+
+
+/* =========================================
+   CHAPTER 2 PARTICLES
+========================================= */
+
+.particle {
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    background: white;
+
+    opacity: 0.4;
+
+    animation:
+        particleMove 4s linear infinite;
+}
+
+@keyframes particleMove {
+
+    from {
+        transform: translateY(110vh);
+    }
+
+    to {
+        transform: translateY(-10vh);
+    }
+}
+
+
+/* =========================================
+   CHAPTER 2 QUESTION
+========================================= */
+
+#chapter2Question {
+    background: #c982aa;
+
+    background-image:
+        radial-gradient(
+            rgba(255,255,255,0.25) 1px,
+            transparent 1px
+        );
+
+    background-size: 18px 18px;
+}
+
+.question-window {
+    width: min(600px, 88vw);
+
+    min-height: 350px;
+}
+
+.question-window .window-content {
+    min-height: 300px;
+}
+
+.question-window h1 {
+    font-size: clamp(27px, 6vw, 48px);
+
+    line-height: 1.1;
+}
+
+
+/* =========================================
+   FINAL REVEAL
+========================================= */
+
+#finalReveal {
+    background:
+        radial-gradient(
+            circle at center,
+            #ffeaf4 0%,
+            #e6a9ca 45%,
+            #765079 100%
+        );
+}
+
+.final-content {
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 18px;
+
+    animation:
+        finalAppear 1s ease forwards;
+}
+
+@keyframes finalAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+.final-star {
+    font-size: 80px;
+
+    color: white;
+
+    text-shadow:
+        4px 4px 0 #351b35;
+
+    animation:
+        starSpin 5s linear infinite;
+}
+
+@keyframes starSpin {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.final-content h1 {
+    font-size: clamp(35px, 8vw, 70px);
+
+    line-height: 1;
+
+    color: #351b35;
+}
+
+.final-message {
+    font-size: 45px;
+
+    color: #9c477b;
+}
+
+
+/* =========================================
+   MADE WITH LOVE
+========================================= */
+
+.made-with-love {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+    margin-top: 15px;
+
+    color: #754267;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    animation:
+        signatureAppear 1.5s ease forwards;
+}
+
+.made-with-love span {
+    font-size: 12px;
+
+    opacity: 0.8;
+
+    text-transform: lowercase;
+}
+
+.made-with-love strong {
+    font-size: 14px;
+
+    color: #351b35;
+
+    font-weight: bold;
+}
+
+@keyframes signatureAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================
+   NO BUTTON
+========================================= */
+
+#noButton {
+    transition:
+        left 0.25s ease,
+        top 0.25s ease,
+        transform 0.12s ease;
+}
+
+
+/* =========================================
+   EXTRA ANIMATIONS
+========================================= */
+
+@keyframes heartExplosion {
+
+    0% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.3);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(1.2);
+
+        opacity: 0;
+    }
+}
+
+@keyframes finalParticle {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0.2;
+    }
+
+    50% {
+        transform:
+            translateY(-20px)
+            rotate(180deg);
+
+        opacity: 0.9;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .window {
+        width: 86vw;
+
+        min-height: 390px;
+
+        box-shadow:
+            6px 6px 0 #351b35;
+    }
+
+
+    .window-content {
+        padding: 24px 15px;
+
+        min-height: 340px;
+    }
+
+
+    .window-header {
+        height: 43px;
+    }
+
+
+    .window-title {
+        font-size: 12px;
+    }
+
+
+    .window-buttons span {
+        width: 21px;
+        height: 19px;
+
+        font-size: 10px;
+    }
+
+
+    .character-area {
+        transform: scale(0.85);
+    }
+
+
+    .message-area h1 {
+        font-size: 27px;
+    }
+
+
+    .buttons {
+        gap: 10px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+
+    .pixel-button {
+        padding: 10px 17px;
+
+        font-size: 12px;
+    }
+
+
+    /* Date */
+
+    #dateQuestion .window {
+        width: 86vw;
+    }
+
+    .date-big {
+        font-size: 43px;
+    }
+
+    #dateQuestion .small-text {
+        font-size: 13px;
+    }
+
+    .date-options {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .date-option {
+        width: 180px;
+    }
+
+
+    /* Together */
+
+    .days-number {
+        font-size: 65px;
+    }
+
+    .together-label {
+        font-size: 18px;
+
+        letter-spacing: 2px;
+    }
+
+
+    /* Reveal */
+
+    .big-heart {
+        font-size: 75px;
+    }
+
+
+    /* Chapter 2 */
+
+    .chapter2-content {
+        padding: 25px;
+    }
+
+    .chapter2-content h1 {
+        font-size: 36px;
+    }
+
+
+    /* Final */
+
+    .final-content {
+        padding: 25px;
+    }
+
+    .final-content h1 {
+        font-size: 45px;
+    }
+
+    .final-star {
+        font-size: 65px;
+    }
+
+    .made-with-love {
+        margin-top: 10px;
+    }
+}
+
+
+/* =========================================
+   TEXT SELECTION
+========================================= */
+
+::selection {
+    background: #351b35;
+
+    color: white;
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible {
+    outline: 3px dashed #351b35;
+
+    outline-offset: 4px;
+}
